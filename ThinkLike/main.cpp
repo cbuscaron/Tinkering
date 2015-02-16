@@ -9,10 +9,16 @@ int main()
 
 while(n != 99){
     cin >> n;
+    int j;
 
     for(int col = 0; col<n*2; col++){
 
-        for(int row =0; row<col; row++){
+
+        if(col<n){j=col;}
+
+        else{j=(n*2-col);}
+
+        for(int row = 0; row<j;row++){
             cout<<"#";
         }
 
