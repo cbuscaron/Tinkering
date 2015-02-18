@@ -3,44 +3,89 @@
 using namespace std;
 
 void PrintHalfTriangle(int n);
-void    PrintSideTriangle(int n);
-void    LuhnCheckSum();
+void PrintSideTriangle(int n);
+int LuhnCheckSum();
+int doubleDigitValue(int digit);
 
 int main()
 {
-    unsigned short n = 0;
+    unsigned short n = 1;
     cout << "Hello world!" << endl;
 
-while(n != 99){
-    cin >> n;
-
-    LuhnCheckSum();
 
 
-}
+    char digit;
+    int checksum = 0;
+    int position = 1;
+    cout<<" enter a number iwth even number of digits: ";
+    digit = cin.get();
+
+    while(digit != 10){
+
+    if(position % 2 == 0) checksum += digit - '0';
+    else checksum += 2* (digit - '0');
+
+    digit = cin.get();
+    position++;
+
+    }
+
+    cout<< "Checksum is "<< checksum<< ". \n";
+
+
+
+
+    //n = LuhnCheckSum();
+
+    //cout<<n;
+
+
+
+
+
     return 0;
 }
 
-void    LuhnCheckSum(){
+int LuhnCheckSum(){
 
-        int digit;
-        int sum;
-        while(digit!=99){
-        cout<<"Enter a single digit number, 0-9: ";
-        cin>>digit;
-        if(digit==99) break;
+    char digit;
+    int Val =0;
+    /*
+    cout<<"Enter a one-digit number: ";
+    digit = cin.get();
+    int sum = (int)digit - 48;
+    */
+    for(int i = 1; i <=7; i++){
 
-        int doubledDigit = digit*2;
+    cout<<"\nEnter a one-digit number: ";
+    cin >>digit;
+    int sum = (int)digit - 48;
+
+    if(i%2 == 0){
+
+     sum = doubleDigitValue(sum);
+
+    }
 
 
-        if(doubledDigit >= 10) sum += 1+ doubledDigit%10;
-        else sum += doubledDigit;
-        }
+    Val =  Val + sum;
 
 
-        cout<<"Sum of digits in doubled number: "<<sum<<"\n";
+    }
 
+    return Val;
 
+}
+
+int doubleDigitValue(int digit){
+
+    int doubleDigit = digit*2;
+    int sum;
+
+    if(doubleDigit>10) sum = 1 + doubleDigit % 10;
+    else sum = doubleDigit;
+
+    return sum;
 }
 
 
@@ -62,7 +107,7 @@ void PrintHalfTriangle(int n){
 
 
 
-void    PrintSideTriangle(int n){
+void PrintSideTriangle(int n){
 
     int j;
 
