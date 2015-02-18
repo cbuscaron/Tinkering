@@ -4,7 +4,7 @@ using namespace std;
 
 void PrintHalfTriangle(int n);
 void    PrintSideTriangle(int n);
-
+void    LuhnCheckSum();
 
 int main()
 {
@@ -14,15 +14,33 @@ int main()
 while(n != 99){
     cin >> n;
 
-    PrintHalfTriangle(n);
-    cout<< "------------------------";
-    cout<<"\n";
-
-    PrintSideTriangle(n);
+    LuhnCheckSum();
 
 
 }
     return 0;
+}
+
+void    LuhnCheckSum(){
+
+        int digit;
+        int sum;
+        while(digit!=99){
+        cout<<"Enter a single digit number, 0-9: ";
+        cin>>digit;
+        if(digit==99) break;
+
+        int doubledDigit = digit*2;
+
+
+        if(doubledDigit >= 10) sum += 1+ doubledDigit%10;
+        else sum += doubledDigit;
+        }
+
+
+        cout<<"Sum of digits in doubled number: "<<sum<<"\n";
+
+
 }
 
 
