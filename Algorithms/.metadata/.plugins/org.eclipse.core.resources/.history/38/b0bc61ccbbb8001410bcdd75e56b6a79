@@ -30,7 +30,7 @@ public class Algorithms {
 	      }
 
 	      
-		int[] a = new int[4000];
+		int[] a = new int[1000];
 		
 		int count = 0;
 		
@@ -42,13 +42,10 @@ public class Algorithms {
 		s.close();
 		
 		
-		Stopwatch stopwatch = new Stopwatch();
+		
 		
 		StdOut.println(ThreeSum.count(a));
 		
-		double time = stopwatch.elapsedTime();
-		
-		StdOut.println(time);
 		
 	}
 

@@ -30,7 +30,7 @@ public class Algorithms {
 	      }
 
 	      
-		int[] a = new int[4000];
+		int[] a = new int[1000];
 		
 		int count = 0;
 		
