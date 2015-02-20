@@ -1,11 +1,52 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 
 public class Algorithms {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		 System.out.print("File Name: ");
 
-		System.out.println("Hello Pepe");
-		System.out.println("Ping");
+	      //  open up standard input
+	      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	      String fileName = null;
+	      Scanner s = null;
+
+	      //  read the username from the command-line; need to use try/catch with the
+	      //  readLine() method
+	      try {
+	    	  fileName = br.readLine();
+	    	  
+	    	  s = new Scanner(new File(fileName));
+	    	  
+	      } catch (IOException ioe) {
+	         System.out.println("IO error trying to read your name!");
+	         System.exit(1);
+	      }
+
+	      
+		int[] a = new int[1000];
+		
+		int count = 0;
+		
+		while (s.hasNextInt()) {
+		    a[count] = s.nextInt();
+		    count++;
+		}
+
+		s.close();
+		
+		
+		
+		
+		StdOut.println(ThreeSum.count(a));
+		
+		
 	}
 
 }
